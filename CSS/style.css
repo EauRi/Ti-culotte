@@ -195,3 +195,28 @@ a:focus {
     font-size: 1.75rem !important;
   }
 }
+
+
+/* Animation du bouton hamburger */
+#hamburger-btn.active .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+#hamburger-btn.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger-btn.active .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Menu mobile */
+#mobile-menu {
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+}
+
+#mobile-menu.active {
+  display: block;
+  max-height: 500px;
+}
