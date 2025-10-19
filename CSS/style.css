@@ -1,84 +1,197 @@
-/* ==============================
-   🎨 Ti-culotté - Feuille de style principale
-   ============================== */
+/* ============================================ */
+/* FICHIER CSS POUR TI-CULOTTÉ */
+/* ============================================ */
 
-/* --- Configuration Tailwind personnalisée --- */
-@layer base {
-  html {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+/* Reset et styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables CSS personnalisées */
+:root {
+  --color-primary: #FFF4E0;
+  --color-secondary: #FFE8D6;
+  --color-accent: #E8A87C;
+  --color-neutral: #FFFCF7;
+  --color-text: #5D5550;
+  --color-bg-light: #f8f7f6;
+  --color-bg-dark: #211911;
+}
+
+/* Transitions douces pour tous les éléments interactifs */
+a,
+button {
+  transition: all 0.3s ease;
+}
+
+/* Styles pour les liens de navigation actifs */
+.nav-links a.active {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* Animation pour les éléments au scroll */
+.step-card,
+.pricing-card,
+.advantage-item {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Style pour le menu mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-neutral);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 1rem 1rem;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links a {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-secondary);
+  }
+  
+  .nav-links a:last-child {
+    border-bottom: none;
   }
 }
 
-/* --- Couleurs et thèmes --- */
-@layer utilities {
-  :root {
-    --primary: #FFF4E0;
-    --secondary: #FFE8D6;
-    --accent: #E8A87C;
-    --neutral: #FFFCF7;
-    --text-color: #5D5550;
-    --background-light: #f8f7f6;
+/* Styles pour les détails/summary (FAQ) */
+details summary {
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+
+/* Effet hover sur les boutons */
+button:hover,
+.btn-subscribe:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(232, 168, 124, 0.3);
+}
+
+/* Effet hover sur les cartes de pricing */
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation de rotation pour les icônes */
+.material-symbols-outlined {
+  transition: transform 0.3s ease;
+}
+
+/* Styles pour le formulaire */
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(232, 168, 124, 0.1);
+}
+
+/* Scroll smooth pour toute la page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Styles additionnels pour améliorer l'apparence */
+section {
+  scroll-margin-top: 100px;
+}
+
+/* Animation fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* --- Boutons génériques --- */
-.btn-accent {
-  @apply flex items-center justify-center h-12 px-5 rounded-xl bg-accent text-white font-bold text-base tracking-[0.015em];
+/* Animation pulse pour les boutons CTA */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
-.btn-secondary {
-  @apply flex items-center justify-center h-10 px-4 rounded-xl bg-secondary text-text-color font-bold text-sm;
+/* Effet de survol sur les liens du footer */
+footer a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
 }
 
-/* --- Navigation --- */
-.nav-link {
-  @apply text-text-color text-sm font-medium hover:text-accent transition-colors;
+/* Style pour les cartes avec bordure accentuée */
+.border-accent {
+  box-shadow: 0 4px 12px rgba(232, 168, 124, 0.2);
 }
 
-/* --- Sections --- */
-.section-primary {
-  @apply bg-primary rounded-xl shadow-lg p-4 sm:p-6 lg:p-10;
+/* Amélioration de la lisibilité du texte */
+p {
+  line-height: 1.6;
 }
 
-.section-neutral {
-  @apply bg-neutral rounded-xl shadow-lg p-4 sm:p-6 lg:p-10;
+/* Styles pour les badges */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
-/* --- Titres --- */
-.title-large {
-  @apply text-accent text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em];
+/* Transition douce pour l'apparition des sections */
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
 }
 
-.section-title {
-  @apply text-accent text-3xl font-bold text-center mb-10;
+/* Styles pour améliorer l'accessibilité */
+button:focus,
+a:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
-/* --- Étapes --- */
-.step {
-  @apply flex flex-col items-center gap-4;
+/* Style pour les icônes Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
 }
 
-.step-icon {
-  @apply flex items-center justify-center size-16 bg-secondary rounded-full text-accent;
-}
-
-.step-title {
-  @apply text-text-color font-bold text-lg;
-}
-
-.step-text {
-  @apply text-text-color/80 text-sm;
-}
-
-/* --- Pied de page --- */
-.footer {
-  @apply bg-neutral px-10 py-6 rounded-b-xl text-center mt-10 text-text-color text-sm;
-}
-
-.footer .socials {
-  @apply flex justify-center gap-4 mt-2;
-}
-
-.footer a {
-  @apply text-text-color hover:text-accent transition-colors;
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
 }

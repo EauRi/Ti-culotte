@@ -5,13 +5,14 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Ti-culotté - Location de vêtements pour -6ans</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
       rel="stylesheet"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
+    <link href="./CSS/style.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
       tailwind.config = {
@@ -38,7 +39,6 @@
         },
       };
     </script>
-    <script src="./JS/script.js"></script>
   </head>
   <body class="bg-background-light font-display">
     <div
@@ -50,7 +50,7 @@
             class="layout-content-container flex flex-col max-w-[960px] flex-1"
           >
             <header
-              class="sticky top-5 z-10 flex items-center justify-between whitespace-nowrap bg-neutral px-10 py-3 rounded-xl shadow-md"
+              class="fixed top-0 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between whitespace-nowrap bg-neutral px-10 py-3 rounded-xl shadow-md w-full max-w-[960px]"
             >
               <div class="flex items-center gap-4 text-text-color">
                 <div class="size-6 text-accent">
@@ -77,35 +77,33 @@
                   Ti-culotté
                 </h2>
               </div>
-              <div class="flex flex-1 justify-end gap-8">
-                <div class="hidden md:flex items-center gap-9">
-                  <a
-                    class="text-text-color text-sm font-medium leading-normal"
-                    href="#comment-ca-marche"
-                    >Comment ça marche</a
-                  >
-                  <a
-                    class="text-text-color text-sm font-medium leading-normal"
-                    href="#formules"
-                    >Abonnement</a
-                  >
-                  <a
-                    class="text-text-color text-sm font-medium leading-normal"
-                    href="#a-propos"
-                    >À propos</a
-                  >
-                </div>
+              <div class="hidden md:flex items-center gap-9">
                 <a
-                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-secondary text-text-color text-sm font-bold leading-normal tracking-[0.015em]"
-                  href="#contact"
+                  class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
+                  href="#comment-ca-marche"
+                  >Comment ça marche</a
                 >
-                  <span class="truncate">Louer maintenant</span>
-                </a>
+                <a
+                  class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
+                  href="#formules"
+                  >Abonnement</a
+                >
+                <a
+                  class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
+                  href="#a-propos"
+                  >À propos</a
+                >
               </div>
+              <a
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-secondary text-text-color text-sm font-bold leading-normal tracking-[0.015em] hover:bg-accent hover:text-white transition-colors"
+                href="#contact"
+              >
+                <span class="truncate">Louer maintenant</span>
+              </a>
             </header>
-            <main class="flex flex-col gap-10">
+            <main class="flex flex-col gap-10 pt-20">
               <section
-                class="bg-primary rounded-xl shadow-lg p-4 sm:p-6 lg:p-10 mt-5"
+                class="bg-primary rounded-xl shadow-lg p-4 sm:p-6 lg:p-10"
                 id="presentation"
               >
                 <div class="flex flex-col gap-6 px-4 py-10 text-center">
@@ -571,5 +569,6 @@
         </div>
       </div>
     </div>
+    <script src="./JS/script.js"></script>
   </body>
 </html>
