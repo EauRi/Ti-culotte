@@ -1,0 +1,84 @@
+/* ==============================
+   🎨 Ti-culotté - Feuille de style principale
+   ============================== */
+
+/* --- Configuration Tailwind personnalisée --- */
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* --- Couleurs et thèmes --- */
+@layer utilities {
+  :root {
+    --primary: #FFF4E0;
+    --secondary: #FFE8D6;
+    --accent: #E8A87C;
+    --neutral: #FFFCF7;
+    --text-color: #5D5550;
+    --background-light: #f8f7f6;
+  }
+}
+
+/* --- Boutons génériques --- */
+.btn-accent {
+  @apply flex items-center justify-center h-12 px-5 rounded-xl bg-accent text-white font-bold text-base tracking-[0.015em];
+}
+
+.btn-secondary {
+  @apply flex items-center justify-center h-10 px-4 rounded-xl bg-secondary text-text-color font-bold text-sm;
+}
+
+/* --- Navigation --- */
+.nav-link {
+  @apply text-text-color text-sm font-medium hover:text-accent transition-colors;
+}
+
+/* --- Sections --- */
+.section-primary {
+  @apply bg-primary rounded-xl shadow-lg p-4 sm:p-6 lg:p-10;
+}
+
+.section-neutral {
+  @apply bg-neutral rounded-xl shadow-lg p-4 sm:p-6 lg:p-10;
+}
+
+/* --- Titres --- */
+.title-large {
+  @apply text-accent text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em];
+}
+
+.section-title {
+  @apply text-accent text-3xl font-bold text-center mb-10;
+}
+
+/* --- Étapes --- */
+.step {
+  @apply flex flex-col items-center gap-4;
+}
+
+.step-icon {
+  @apply flex items-center justify-center size-16 bg-secondary rounded-full text-accent;
+}
+
+.step-title {
+  @apply text-text-color font-bold text-lg;
+}
+
+.step-text {
+  @apply text-text-color/80 text-sm;
+}
+
+/* --- Pied de page --- */
+.footer {
+  @apply bg-neutral px-10 py-6 rounded-b-xl text-center mt-10 text-text-color text-sm;
+}
+
+.footer .socials {
+  @apply flex justify-center gap-4 mt-2;
+}
+
+.footer a {
+  @apply text-text-color hover:text-accent transition-colors;
+}
