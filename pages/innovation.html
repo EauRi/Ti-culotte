@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="light" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Nos Innovations - Ti-culotté</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FFF4E0",
+              secondary: "#FFE8D6",
+              accent: "#E8A87C",
+              neutral: "#FFFCF7",
+              "text-color": "#5D5550",
+              "background-light": "#f8f7f6",
+              "background-dark": "#211911",
+            },
+            fontFamily: { display: ["Plus Jakarta Sans", "sans-serif"] },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .flip-card {
+        perspective: 1000px;
+        cursor: pointer;
+      }
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+      .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 1rem;
+      }
+      .flip-card-back {
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+
+  <body class="bg-background-light font-display">
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center pt-5">
+          <div
+            class="layout-content-container flex flex-col max-w-[960px] flex-1"
+          >
+            <!-- Header -->
+            <header
+              class="fixed top-0 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between whitespace-nowrap bg-neutral px-10 py-3 rounded-xl shadow-md w-full max-w-[960px]"
+            >
+              <a
+                href="../index.html"
+                class="flex items-center gap-4 text-text-color hover:opacity-80 transition-opacity"
+              >
+                <div class="size-6 text-accent">
+                  <svg
+                    fill="currentColor"
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_6_319)">
+                      <path
+                        d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"
+                      ></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_6_319">
+                        <rect fill="white" height="48" width="48"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <h2
+                  class="text-accent text-lg font-bold leading-tight tracking-[-0.015em]"
+                >
+                  Ti-culotté
+                </h2>
+              </a>
+
+              <a
+                href="../index.html"
+                class="flex items-center gap-2 text-text-color text-sm font-medium hover:text-accent transition-colors"
+              >
+                <span class="material-symbols-outlined">arrow_back</span>
+                <span>Retour</span>
+              </a>
+            </header>
+
+            <!-- Main Content -->
+            <main class="flex flex-col gap-10 pt-24 pb-10">
+              <!-- Hero Section -->
+              <section class="bg-primary rounded-xl shadow-lg p-8 text-center">
+                <div
+                  class="flex items-center justify-center size-20 bg-accent/20 rounded-full mx-auto mb-6"
+                >
+                  <span class="material-symbols-outlined text-5xl text-accent"
+                    >lightbulb</span
+                  >
+                </div>
+                <h1
+                  class="text-accent text-4xl font-black leading-tight tracking-[-0.033em] mb-4"
+                >
+                  Nos Projets Futurs
+                </h1>
+                <p class="text-text-color text-base max-w-2xl mx-auto">
+                  Découvrez les innovations qui façonneront l'avenir de
+                  Ti-culotté. Cliquez sur les cartes pour en savoir plus !
+                </p>
+              </section>
+
+              <!-- Cards Section -->
+              <section class="grid md:grid-cols-2 gap-8">
+                <!-- Carte 1: Vêtements de qualité -->
+                <div
+                  class="flip-card h-80"
+                  onclick="this.classList.toggle('flipped')"
+                >
+                  <div class="flip-card-inner">
+                    <!-- Front -->
+                    <div
+                      class="flip-card-front bg-neutral shadow-lg p-8 flex flex-col items-center justify-center text-center gap-4"
+                    >
+                      <div
+                        class="flex items-center justify-center size-16 bg-secondary rounded-full"
+                      >
+                        <span
+                          class="material-symbols-outlined text-4xl text-accent"
+                          >workspace_premium</span
+                        >
+                      </div>
+                      <h3 class="text-accent text-2xl font-bold">
+                        Vêtements de Qualité
+                      </h3>
+                      <p class="text-text-color/70 text-sm">
+                        Cliquez pour découvrir notre engagement
+                      </p>
+                      <span
+                        class="material-symbols-outlined text-accent animate-bounce"
+                        >touch_app</span
+                      >
+                    </div>
+                    <!-- Back -->
+                    <div
+                      class="flip-card-back bg-accent shadow-lg p-8 flex flex-col justify-center gap-4"
+                    >
+                      <div
+                        class="flex items-center justify-center size-12 bg-white/20 rounded-full mx-auto"
+                      >
+                        <span
+                          class="material-symbols-outlined text-3xl text-white"
+                          >check_circle</span
+                        >
+                      </div>
+                      <h3 class="text-white text-xl font-bold text-center">
+                        Notre Promesse
+                      </h3>
+                      <ul class="text-white/90 text-sm space-y-2">
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span>Vêtements provenant du Québec</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span>Matières nobles et durables</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span>Tissus recyclés et écoresponsables</span>
+                        </li>
+                      </ul>
+                      <p class="text-white/80 text-xs text-center mt-2">
+                        Cliquez pour revenir
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Carte 2: Starter Pack -->
+                <div
+                  class="flip-card h-80"
+                  onclick="this.classList.toggle('flipped')"
+                >
+                  <div class="flip-card-inner">
+                    <!-- Front -->
+                    <div
+                      class="flip-card-front bg-neutral shadow-lg p-8 flex flex-col items-center justify-center text-center gap-4"
+                    >
+                      <div
+                        class="flex items-center justify-center size-16 bg-secondary rounded-full"
+                      >
+                        <span
+                          class="material-symbols-outlined text-4xl text-accent"
+                          >shopping_bag</span
+                        >
+                      </div>
+                      <h3 class="text-accent text-2xl font-bold">
+                        Starter Pack Maternité
+                      </h3>
+                      <p class="text-text-color/70 text-sm">
+                        Cliquez pour découvrir le kit complet
+                      </p>
+                      <span
+                        class="material-symbols-outlined text-accent animate-bounce"
+                        >touch_app</span
+                      >
+                    </div>
+                    <!-- Back -->
+                    <div
+                      class="flip-card-back bg-accent shadow-lg p-8 flex flex-col justify-center gap-4"
+                    >
+                      <div
+                        class="flex items-center justify-center size-12 bg-white/20 rounded-full mx-auto"
+                      >
+                        <span
+                          class="material-symbols-outlined text-3xl text-white"
+                          >favorite</span
+                        >
+                      </div>
+                      <h3 class="text-white text-xl font-bold text-center">
+                        Le Kit Parfait
+                      </h3>
+                      <ul class="text-white/90 text-sm space-y-2">
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >child_care</span
+                          >
+                          <span>Kit complet pour l'arrivée de bébé</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >pregnant_woman</span
+                          >
+                          <span>Accompagnement de fin de grossesse</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >backpack</span
+                          >
+                          <span>Sac maternité inclus</span>
+                        </li>
+                      </ul>
+                      <p class="text-white/80 text-xs text-center mt-2">
+                        Cliquez pour revenir
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- CTA Section -->
+              <section
+                class="bg-secondary rounded-xl shadow-lg p-8 text-center"
+              >
+                <h2 class="text-accent text-2xl font-bold mb-4">
+                  Vous avez des idées ?
+                </h2>
+                <p class="text-text-color mb-6 max-w-xl mx-auto">
+                  Nous sommes toujours à l'écoute de nos clients pour améliorer
+                  nos services. Partagez vos suggestions !
+                </p>
+                <a
+                  href="../index.html#contact"
+                  class="inline-flex items-center gap-2 cursor-pointer rounded-xl h-12 px-6 bg-accent text-white font-bold hover:bg-accent/90 transition-all"
+                >
+                  <span>Nous contacter</span>
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+              </section>
+            </main>
+
+            <footer
+              class="bg-neutral text-text-color px-10 py-12 rounded-t-3xl mt-16"
+            >
+              <div
+                class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10"
+              >
+                <!-- Bloc 1 : Branding -->
+                <div class="col-span-1">
+                  <h2 class="text-2xl font-semibold text-accent mb-3">
+                    Ti-culotté
+                  </h2>
+                  <p class="text-sm leading-relaxed text-gray-700">
+                    Location de vêtements écoresponsables pour enfants. Une mode
+                    circulaire, pratique et futée 🌿
+                  </p>
+                </div>
+
+                <!-- Bloc 2 : Liens utiles -->
+                <div>
+                  <h3 class="text-accent font-semibold mb-3">Liens utiles</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >Accueil</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >À propos</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >Nos formules</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >Contact</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Bloc 3 : Ressources -->
+                <div>
+                  <h3 class="text-accent font-semibold mb-3">Ressources</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#faq" class="hover:text-accent transition"
+                        >FAQ</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >Conditions générales</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >Politique de confidentialité</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >Mentions légales</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Bloc 4 : Newsletter -->
+                <div>
+                  <h3 class="text-accent font-semibold mb-3">
+                    Restez en contact 💌
+                  </h3>
+                  <p class="text-sm mb-4 text-gray-700">
+                    Recevez nos nouveautés et astuces éco pour parents futés !
+                  </p>
+
+                  <!-- Réseaux sociaux -->
+                  <div class="flex gap-4 mt-5">
+                    <a href="#" class="hover:text-accent transition text-sm"
+                      >Instagram</a
+                    >
+                    <a href="#" class="hover:text-accent transition text-sm"
+                      >Pinterest</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ligne bas de page -->
+              <div
+                class="border-t border-gray-300 mt-10 pt-4 text-xs text-gray-500"
+              >
+                © 2025 Ti-culotté — Tous droits réservés.
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

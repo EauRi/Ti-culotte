@@ -45,7 +45,7 @@
       class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden"
     >
       <div class="layout-container flex h-full grow flex-col">
-        <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
+        <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center pt-5">
           <div
             class="layout-content-container flex flex-col max-w-[960px] flex-1"
           >
@@ -174,8 +174,7 @@
                       class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-accent text-white text-base font-bold leading-normal tracking-[0.015em]"
                       href="#formules"
                     >
-                      <span class="truncate" href="#formules"
-                        >Découvrir nos formules</span
+                      <span class="truncate">Découvrir nos formules</span>
                       >
                     </a>
                   </div>
@@ -532,6 +531,7 @@
                   </div>
                 </div>
               </section>
+
               <section
                 class="bg-primary rounded-xl shadow-lg p-4 sm:p-6 lg:p-10"
                 id="faq"
@@ -542,16 +542,16 @@
                   </h2>
                   <details
                     class="flex flex-col rounded-xl bg-secondary px-4 py-2 group"
-                    open=""
+                    open
                   >
                     <summary
                       class="flex cursor-pointer items-center justify-between gap-6 py-2"
                     >
-                      <p
+                      <span
                         class="text-text-color text-sm font-medium leading-normal"
                       >
                         Comment fonctionne l'abonnement ?
-                      </p>
+                      </span>
                       <span
                         class="material-symbols-outlined text-text-color group-open:rotate-180"
                         >expand_more</span
@@ -574,11 +574,11 @@
                     <summary
                       class="flex cursor-pointer items-center justify-between gap-6 py-2"
                     >
-                      <p
+                      <span
                         class="text-text-color text-sm font-medium leading-normal"
                       >
                         Quels types de vêtements proposez-vous ?
-                      </p>
+                      </span>
                       <span
                         class="material-symbols-outlined text-text-color group-open:rotate-180"
                         >expand_more</span
@@ -598,11 +598,11 @@
                     <summary
                       class="flex cursor-pointer items-center justify-between gap-6 py-2"
                     >
-                      <p
+                      <span
                         class="text-text-color text-sm font-medium leading-normal"
                       >
                         Puis-je échanger les vêtements ?
-                      </p>
+                      </span>
                       <span
                         class="material-symbols-outlined text-text-color group-open:rotate-180"
                         >expand_more</span
@@ -619,7 +619,28 @@
                   </details>
                 </div>
               </section>
+
+              <div
+                class="p-4 sm:p-6 lg:p-10 relative overflow-hidden"
+                id="innovation"
+              >
+                <div
+                  class="relative z-10 flex flex-col items-center text-center gap-6 py-8"
+                >
+                  <a
+                    href="./pages/innovation.html"
+                    class="group flex items-center gap-3 cursor-pointer overflow-hidden rounded-xl h-14 px-8 bg-accent text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 mt-2"
+                  >
+                    <span class="truncate">Explorer nos innovations</span>
+                    <span
+                      class="material-symbols-outlined group-hover:translate-x-1 transition-transform"
+                      >arrow_forward</span
+                    >
+                  </a>
+                </div>
+              </div>
             </main>
+
             <footer
               class="bg-neutral text-text-color px-10 py-12 rounded-t-3xl mt-16"
             >
@@ -669,7 +690,9 @@
                   <h3 class="text-accent font-semibold mb-3">Ressources</h3>
                   <ul class="space-y-2 text-sm">
                     <li>
-                      <a href="#" class="hover:text-accent transition">FAQ</a>
+                      <a href="#faq" class="hover:text-accent transition"
+                        >FAQ</a
+                      >
                     </li>
                     <li>
                       <a href="#" class="hover:text-accent transition"
@@ -721,6 +744,7 @@
         </div>
       </div>
     </div>
+
     <script src="./JS/script.js"></script>
   </body>
 </html>
