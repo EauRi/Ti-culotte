@@ -40,6 +40,7 @@
       };
     </script>
   </head>
+
   <body class="bg-background-light font-display">
     <div
       class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden"
@@ -503,30 +504,49 @@
                     </p>
                   </div>
                   <div>
-                    <h3 class="text-accent text-2xl font-bold mb-4">
+                    <h3
+                      id="contactTitle"
+                      class="text-accent text-2xl font-bold mb-4"
+                    >
                       Contactez-nous
                     </h3>
-                    <form class="flex flex-col gap-4">
+                    <form id="contactForm" class="flex flex-col gap-4">
                       <input
+                        id="name"
+                        name="name"
                         class="w-full rounded-lg border-secondary bg-primary p-3 text-sm text-text-color placeholder:text-text-color/60 focus:ring-accent"
                         placeholder="Votre nom"
                         type="text"
+                        required
                       />
                       <input
+                        id="email"
+                        name="email"
                         class="w-full rounded-lg border-secondary bg-primary p-3 text-sm text-text-color placeholder:text-text-color/60 focus:ring-accent"
                         placeholder="Votre email"
                         type="email"
+                        required
                       />
                       <textarea
+                        id="message"
+                        name="message"
                         class="w-full rounded-lg border-secondary bg-primary p-3 text-sm text-text-color placeholder:text-text-color/60 focus:ring-accent"
                         placeholder="Votre message"
                         rows="4"
+                        required
                       ></textarea>
                       <button
+                        type="submit"
                         class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-accent text-white text-base font-bold leading-normal tracking-[0.015em]"
                       >
                         <span class="truncate">Envoyer le message</span>
                       </button>
+                      <div
+                        id="successMessage"
+                        class="hidden text-green-500 text-center font-semibold"
+                      >
+                        ✓ Message bien envoyé, merci !
+                      </div>
                     </form>
                   </div>
                 </div>
@@ -733,7 +753,9 @@
                     href="./pages/innovation.html"
                     class="group flex items-center gap-3 cursor-pointer overflow-hidden rounded-xl h-14 px-8 bg-accent text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 mt-2"
                   >
-                    <span class="truncate">Explorer nos innovations</span>
+                    <span class="truncate"
+                      >Explorer nos objectifs futurs !</span
+                    >
                     <span
                       class="material-symbols-outlined group-hover:translate-x-1 transition-transform"
                       >arrow_forward</span
@@ -770,17 +792,17 @@
                       >
                     </li>
                     <li>
-                      <a href="#" class="hover:text-accent transition"
+                      <a href="#a-propos" class="hover:text-accent transition"
                         >À propos</a
                       >
                     </li>
                     <li>
-                      <a href="#" class="hover:text-accent transition"
+                      <a href="#formules" class="hover:text-accent transition"
                         >Nos formules</a
                       >
                     </li>
                     <li>
-                      <a href="#" class="hover:text-accent transition"
+                      <a href="#a-propos" class="hover:text-accent transition"
                         >Contact</a
                       >
                     </li>
@@ -848,5 +870,55 @@
     </div>
 
     <script src="./JS/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      emailjs.init("8vBaE8_sIR-bGulqX"); // Remplacez par votre Public Key
+
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const message = document.getElementById("message").value.trim();
+
+          if (!name || !email || !message) {
+            alert("Veuillez remplir tous les champs");
+            return;
+          }
+
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert("Veuillez entrer une adresse email valide");
+            return;
+          }
+
+          // Désactiver le bouton pendant l'envoi
+          const btn = this.querySelector("button");
+          btn.disabled = true;
+          btn.querySelector("span").textContent = "Envoi en cours...";
+
+          emailjs
+            .send("service_ruk0nb8", "template_lyf1b3g", {
+              name: name,
+              email: email,
+              message: message,
+            })
+            .then(() => {
+              document.getElementById("contactForm").style.display = "none";
+              document.getElementById("contactTitle").textContent =
+                "Message bien envoyé, merci !";
+              document
+                .getElementById("successMessage")
+                .classList.remove("hidden");
+            })
+            .catch((error) => {
+              alert("Erreur lors de l'envoi. Réessayez.");
+              btn.disabled = false;
+              btn.querySelector("span").textContent = "Envoyer le message";
+            });
+        });
+    </script>
   </body>
 </html>
