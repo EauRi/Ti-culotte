@@ -80,10 +80,7 @@
             <header
               class="fixed top-0 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between whitespace-nowrap bg-neutral px-10 py-3 rounded-xl shadow-md w-full max-w-[960px]"
             >
-              <a
-                href="../index.html"
-                class="flex items-center gap-4 text-text-color hover:opacity-80 transition-opacity"
-              >
+              <div class="flex items-center gap-4 text-text-color">
                 <div class="size-6 text-accent">
                   <svg
                     fill="currentColor"
@@ -107,36 +104,94 @@
                 >
                   Ti-culotté
                 </h2>
-              </a>
+              </div>
+
+              <!-- Navigation desktop -->
+              <div class="hidden lg:flex items-center gap-9">
+                <a
+                  class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
+                  href="../index.html#comment-ca-marche"
+                  >Comment ça marche</a
+                >
+                <a
+                  class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
+                  href="../index.html#formules"
+                  >Abonnement</a
+                >
+                <a
+                  class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
+                  href="../index.html#a-propos"
+                  >À propos</a
+                >
+              </div>
 
               <a
-                href="../index.html"
-                class="flex items-center gap-2 text-text-color text-sm font-medium hover:text-accent transition-colors"
+                class="hidden lg:flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-secondary text-text-color text-sm font-bold leading-normal tracking-[0.015em] hover:bg-accent hover:text-white transition-colors"
+                href="../index.html#a-propos"
               >
-                <span class="material-symbols-outlined">arrow_back</span>
-                <span>Retour</span>
+                <span class="truncate">Louer maintenant</span>
               </a>
+
+              <!-- Bouton hamburger -->
+              <button
+                id="hamburger-btn"
+                class="lg:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center"
+              >
+                <span
+                  class="hamburger-line block w-6 h-0.5 bg-text-color transition-all duration-300"
+                ></span>
+                <span
+                  class="hamburger-line block w-6 h-0.5 bg-text-color transition-all duration-300"
+                ></span>
+                <span
+                  class="hamburger-line block w-6 h-0.5 bg-text-color transition-all duration-300"
+                ></span>
+              </button>
+
+              <!-- Menu mobile -->
+              <div
+                id="mobile-menu"
+                class="hidden lg:hidden absolute top-full left-0 right-0 mt-2 bg-neutral rounded-xl shadow-lg overflow-hidden"
+              >
+                <div class="flex flex-col p-4 gap-4">
+                  <a
+                    class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors py-2"
+                    href="../index.html#comment-ca-marche"
+                    >Comment ça marche</a
+                  >
+                  <a
+                    class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors py-2"
+                    href="../index.html#formules"
+                    >Abonnement</a
+                  >
+                  <a
+                    class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors py-2"
+                    href="../index.html#a-propos"
+                    >À propos</a
+                  >
+                  <a
+                    class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-secondary text-text-color text-sm font-bold leading-normal tracking-[0.015em] hover:bg-accent hover:text-white transition-colors"
+                    href="../index.html#contact"
+                  >
+                    <span class="truncate">Louer maintenant</span>
+                  </a>
+                </div>
+              </div>
             </header>
 
             <!-- Main Content -->
             <main class="flex flex-col gap-10 pt-24 pb-10">
               <!-- Hero Section -->
-              <section class="bg-primary rounded-xl shadow-lg p-8 text-center">
-                <div
-                  class="flex items-center justify-center size-20 bg-accent/20 rounded-full mx-auto mb-6"
-                >
-                  <span class="material-symbols-outlined text-5xl text-accent"
-                    >lightbulb</span
-                  >
-                </div>
+              <section class="text-center">
                 <h1
                   class="text-accent text-4xl font-black leading-tight tracking-[-0.033em] mb-4"
                 >
                   Nos Projets Futurs
                 </h1>
                 <p class="text-text-color text-base max-w-2xl mx-auto">
-                  Découvrez les innovations qui façonneront l'avenir de
-                  Ti-culotté. Cliquez sur les cartes pour en savoir plus !
+                  Découvrez nos futurs envies, objectifs qui façonneront
+                  l'avenir de Ti-culotté. Cliquez sur les cartes pour en savoir
+                  plus !
                 </p>
               </section>
 
@@ -289,6 +344,304 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- Carte 3: Partenariat Pressing -->
+                <div
+                  class="flip-card h-80"
+                  onclick="this.classList.toggle('flipped')"
+                >
+                  <div class="flip-card-inner">
+                    <!-- Front -->
+                    <div
+                      class="flip-card-front bg-neutral shadow-lg p-8 flex flex-col items-center justify-center text-center gap-4"
+                    >
+                      <div
+                        class="flex items-center justify-center size-16 bg-secondary rounded-full"
+                      >
+                        <span
+                          class="material-symbols-outlined text-4xl text-accent"
+                          >local_laundry_service</span
+                        >
+                      </div>
+                      <h3 class="text-accent text-2xl font-bold">
+                        Partenariat Pressing
+                      </h3>
+                      <p class="text-text-color/70 text-sm">
+                        Cliquez pour découvrir notre engagement hygiène
+                      </p>
+                      <span
+                        class="material-symbols-outlined text-accent animate-bounce"
+                        >touch_app</span
+                      >
+                    </div>
+                    <!-- Back -->
+                    <div
+                      class="flip-card-back bg-accent shadow-lg p-8 flex flex-col justify-center gap-4"
+                    >
+                      <div
+                        class="flex items-center justify-center size-12 bg-white/20 rounded-full mx-auto"
+                      >
+                        <span
+                          class="material-symbols-outlined text-3xl text-white"
+                          >cleaning_services</span
+                        >
+                      </div>
+                      <h3 class="text-white text-xl font-bold text-center">
+                        Hygiène Professionnelle
+                      </h3>
+                      <ul class="text-white/90 text-sm space-y-2">
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span>Nettoyage professionnel certifié</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span>Produits hypoallergéniques pour bébés</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span>Standards d'hygiène maximale garantis</span>
+                        </li>
+                      </ul>
+                      <p class="text-white/80 text-xs text-center mt-2">
+                        Cliquez pour revenir
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Carte 4: Sélection Préparée -->
+                <div
+                  class="flip-card h-80"
+                  onclick="this.classList.toggle('flipped')"
+                >
+                  <div class="flip-card-inner">
+                    <!-- Front -->
+                    <div
+                      class="flip-card-front bg-neutral shadow-lg p-8 flex flex-col items-center justify-center text-center gap-4"
+                    >
+                      <div
+                        class="flex items-center justify-center size-16 bg-secondary rounded-full"
+                      >
+                        <span
+                          class="material-symbols-outlined text-4xl text-accent"
+                          >styler</span
+                        >
+                      </div>
+                      <h3 class="text-accent text-2xl font-bold">
+                        Sélection Déjà Préparée
+                      </h3>
+                      <p class="text-text-color/70 text-sm">
+                        Cliquez pour découvrir prêt emploi
+                      </p>
+                      <span
+                        class="material-symbols-outlined text-accent animate-bounce"
+                        >touch_app</span
+                      >
+                    </div>
+                    <!-- Back -->
+                    <div
+                      class="flip-card-back bg-accent shadow-lg p-8 flex flex-col justify-center gap-4"
+                    >
+                      <div
+                        class="flex items-center justify-center size-12 bg-white/20 rounded-full mx-auto"
+                      >
+                        <span
+                          class="material-symbols-outlined text-3xl text-white"
+                          >checkroom</span
+                        >
+                      </div>
+                      <h3 class="text-white text-xl font-bold text-center">
+                        Prêt-à-Porter déjà pensé
+                      </h3>
+                      <ul class="text-white/90 text-sm space-y-2">
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span>Sélection adaptée à l'âge de votre enfant</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span>Conseils de mode par nos soins</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span
+                            >Gain de temps avec des box prêtes à l'emploi</span
+                          >
+                        </li>
+                      </ul>
+                      <p class="text-white/80 text-xs text-center mt-2">
+                        Cliquez pour revenir
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Carte 5: Partenariat Entreprises Locales -->
+                <div
+                  class="flip-card h-80"
+                  onclick="this.classList.toggle('flipped')"
+                >
+                  <div class="flip-card-inner">
+                    <!-- Front -->
+                    <div
+                      class="flip-card-front bg-neutral shadow-lg p-8 flex flex-col items-center justify-center text-center gap-4"
+                    >
+                      <div
+                        class="flex items-center justify-center size-16 bg-secondary rounded-full"
+                      >
+                        <span
+                          class="material-symbols-outlined text-4xl text-accent"
+                          >handshake</span
+                        >
+                      </div>
+                      <h3 class="text-accent text-2xl font-bold">
+                        Partenaires Locaux
+                      </h3>
+                      <p class="text-text-color/70 text-sm">
+                        Cliquez pour découvrir notre réseau
+                      </p>
+                      <span
+                        class="material-symbols-outlined text-accent animate-bounce"
+                        >touch_app</span
+                      >
+                    </div>
+                    <!-- Back -->
+                    <div
+                      class="flip-card-back bg-accent shadow-lg p-8 flex flex-col justify-center gap-4"
+                    >
+                      <div
+                        class="flex items-center justify-center size-12 bg-white/20 rounded-full mx-auto"
+                      >
+                        <span
+                          class="material-symbols-outlined text-3xl text-white"
+                          >store</span
+                        >
+                      </div>
+                      <h3 class="text-white text-xl font-bold text-center">
+                        Économie Locale
+                      </h3>
+                      <ul class="text-white/90 text-sm space-y-2">
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span
+                            >Partenariat avec des entreprises québécoises</span
+                          >
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span>Produits adaptés aux besoins de l'enfant</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span>Durée de vie des vêtements prolongée</span>
+                        </li>
+                      </ul>
+                      <p class="text-white/80 text-xs text-center mt-2">
+                        Cliquez pour revenir
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Carte 6: Casiers Intelligents -->
+                <div
+                  class="flip-card h-80"
+                  onclick="this.classList.toggle('flipped')"
+                >
+                  <div class="flip-card-inner">
+                    <!-- Front -->
+                    <div
+                      class="flip-card-front bg-neutral shadow-lg p-8 flex flex-col items-center justify-center text-center gap-4"
+                    >
+                      <div
+                        class="flex items-center justify-center size-16 bg-secondary rounded-full"
+                      >
+                        <span
+                          class="material-symbols-outlined text-4xl text-accent"
+                          >lock_open</span
+                        >
+                      </div>
+                      <h3 class="text-accent text-2xl font-bold">
+                        Casiers Intelligents
+                      </h3>
+                      <p class="text-text-color/70 text-sm">
+                        Cliquez pour découvrir la flexibilité totale
+                      </p>
+                      <span
+                        class="material-symbols-outlined text-accent animate-bounce"
+                        >touch_app</span
+                      >
+                    </div>
+                    <!-- Back -->
+                    <div
+                      class="flip-card-back bg-accent shadow-lg p-8 flex flex-col justify-center gap-4"
+                    >
+                      <div
+                        class="flex items-center justify-center size-12 bg-white/20 rounded-full mx-auto"
+                      >
+                        <span
+                          class="material-symbols-outlined text-3xl text-white"
+                          >schedule</span
+                        >
+                      </div>
+                      <h3 class="text-white text-xl font-bold text-center">
+                        Disponible 24/7
+                      </h3>
+                      <ul class="text-white/90 text-sm space-y-2">
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span>Récupération à n'importe quelle heure</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span>Retour flexible 7 jours sur 7</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span
+                            class="material-symbols-outlined text-white text-sm mt-0.5"
+                            >verified</span
+                          >
+                          <span>Accès sécurisé avec code personnel</span>
+                        </li>
+                      </ul>
+                      <p class="text-white/80 text-xs text-center mt-2">
+                        Cliquez pour revenir
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </section>
 
               <!-- CTA Section -->
@@ -303,7 +656,7 @@
                   nos services. Partagez vos suggestions !
                 </p>
                 <a
-                  href="../index.html#contact"
+                  href="../index.html#a-propos"
                   class="inline-flex items-center gap-2 cursor-pointer rounded-xl h-12 px-6 bg-accent text-white font-bold hover:bg-accent/90 transition-all"
                 >
                   <span>Nous contacter</span>
