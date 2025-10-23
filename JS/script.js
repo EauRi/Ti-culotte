@@ -23,3 +23,49 @@ document.addEventListener('click', (e) => {
     mobileMenu.classList.remove('active');
   }
 });
+
+
+// animations de la nav bar
+// Animation de la navigation active
+document.addEventListener('DOMContentLoaded', function() {
+  const nav = document.querySelector('nav');
+  const navLinks = document.querySelectorAll('nav ul li');
+  const activeElement = document.querySelector('.active-element');
+  
+  function setActiveElement(element) {
+    const rect = element.getBoundingClientRect();
+    const navRect = nav.getBoundingClientRect();
+    
+    activeElement.style.width = rect.width + 'px';
+    activeElement.style.left = (rect.left - navRect.left) + 'px';
+  }
+  
+  // Initialiser la position au chargement
+  const activeLink = document.querySelector('nav ul li.active');
+  if (activeLink) {
+    setActiveElement(activeLink);
+  }
+  
+  // Animer au survol
+  navLinks.forEach(link => {
+    link.addEventListener('mouseenter', function() {
+      setActiveElement(this);
+    });
+  });
+  
+  // Retour à l'élément actif quand on sort de la nav
+  nav.addEventListener('mouseleave', function() {
+    const activeLink = document.querySelector('nav ul li.active');
+    if (activeLink) {
+      setActiveElement(activeLink);
+    }
+  });
+  
+  // Gérer le clic pour changer l'élément actif
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+});

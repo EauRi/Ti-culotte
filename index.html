@@ -53,50 +53,53 @@
             <header
               class="fixed top-0 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between whitespace-nowrap bg-neutral px-10 py-3 rounded-xl shadow-md w-full max-w-[960px]"
             >
-              <div class="flex items-center gap-4 text-text-color">
+              <a
+                href="index.html"
+                class="flex items-center gap-4 text-text-color transition-opacity outline-none focus:outline-none"
+              >
                 <div class="size-6 text-accent">
-                  <svg
-                    fill="currentColor"
-                    viewBox="0 0 48 48"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clip-path="url(#clip0_6_319)">
-                      <path
-                        d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"
-                      ></path>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_6_319">
-                        <rect fill="white" height="48" width="48"></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
+                  <div class="size-6">
+                    <img
+                      src="./img/logo.png"
+                      alt="Logo Ti-culotté"
+                      class="w-full h-full object-contain"
+                    />
+                  </div>
                 </div>
                 <h2
                   class="text-accent text-lg font-bold leading-tight tracking-[-0.015em]"
                 >
                   Ti-culotté
                 </h2>
-              </div>
+              </a>
 
               <!-- Navigation desktop -->
-              <div class="hidden lg:flex items-center gap-9">
-                <a
-                  class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
-                  href="#comment-ca-marche"
-                  >Comment ça marche</a
-                >
-                <a
-                  class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
-                  href="#formules"
-                  >Abonnement</a
-                >
-                <a
-                  class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
-                  href="#a-propos"
-                  >À propos</a
-                >
-              </div>
+              <nav class="hidden lg:block relative z-10">
+                <ul class="flex items-center gap-9 m-0 p-0 list-none">
+                  <li>
+                    <a
+                      class="focus:outline-none outline-none text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
+                      href="#comment-ca-marche"
+                      >Comment ça marche</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="focus:outline-none outline-none text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
+                      href="#formules"
+                      >Abonnement</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="focus:outline-none outline-none text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
+                      href="#a-propos"
+                      >À propos</a
+                    >
+                  </li>
+                </ul>
+                <div class="active-element"></div>
+              </nav>
 
               <a
                 class="hidden lg:flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-secondary text-text-color text-sm font-bold leading-normal tracking-[0.015em] hover:bg-accent hover:text-white transition-colors"
@@ -128,17 +131,17 @@
               >
                 <div class="flex flex-col p-4 gap-4">
                   <a
-                    class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors py-2"
+                    class="focus:outline-none outline-none text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors py-2"
                     href="#comment-ca-marche"
                     >Comment ça marche</a
                   >
                   <a
-                    class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors py-2"
+                    class="focus:outline-none outline-none text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors py-2"
                     href="#formules"
                     >Abonnement</a
                   >
                   <a
-                    class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors py-2"
+                    class="focus:outline-none outline-none text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors py-2"
                     href="#a-propos"
                     >À propos</a
                   >
@@ -153,16 +156,31 @@
             </header>
             <main class="flex flex-col gap-10 pt-20">
               <section
-                class="bg-primary rounded-xl shadow-lg p-4 sm:p-6 lg:p-10"
+                class="relative rounded-xl shadow-lg p-4 sm:p-6 lg:p-10 overflow-hidden"
                 id="presentation"
               >
-                <div class="flex flex-col gap-6 px-4 py-10 text-center">
+                <!-- Image de fond avec blur -->
+                <div
+                  class="absolute inset-0 bg-cover bg-center rounded-xl"
+                  style="
+                    background-image: url('./img/enfant.jpg');
+                    filter: blur(3px);
+                    transform: scale(1.1);
+                  "
+                ></div>
+
+                <!-- Overlay pour améliorer la lisibilité du texte -->
+                <div class="absolute inset-0 bg-white/75 rounded-xl"></div>
+
+                <!-- Contenu par-dessus -->
+                <div
+                  class="relative z-10 flex flex-col gap-6 px-4 py-10 text-center"
+                >
                   <h1
                     class="text-accent text-4xl font-black leading-tight tracking-[-0.033em] sm:text-5xl"
                   >
                     Location de vêtements pour vos enfants, une nouvelle manière
                     de consommer !
-                    <!-- METRRE UNE IMAGE EN FOND-->
                   </h1>
                   <p
                     class="text-text-color text-sm font-normal leading-normal max-w-2xl mx-auto sm:text-base"
@@ -177,7 +195,6 @@
                       href="#formules"
                     >
                       <span class="truncate">Découvrir nos formules</span>
-                      >
                     </a>
                   </div>
                 </div>

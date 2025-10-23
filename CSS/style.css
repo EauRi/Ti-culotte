@@ -39,6 +39,112 @@ button {
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+/* ============================================ */
+/* ANIMATION DE LA NAVIGATION */
+/* ============================================ */
+
+/* Effet de fond pour le body */
+body:before {
+  content: "";
+  position: absolute;
+  inset: 40% -60% 0 -60%;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Navigation principale */
+nav {
+  position: relative;
+  z-index: 1;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+/* Élément actif animé sous la navigation avec dégradé */
+nav .active-element {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--color-accent) 0%, 
+    #f4c088 50%, 
+    var(--color-accent) 100%);
+  background-size: 200% 100%;
+  border-radius: 2px;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+  animation: gradientShift 2s ease infinite;
+  box-shadow: 0 2px 8px rgba(232, 168, 124, 0.4);
+}
+
+/* Animation du dégradé */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Animation de rotation de l'élément actif */
+nav.before .active-element {
+  transform: rotateY(180deg);
+}
+
+/* Style pour le lien actif */
+nav ul li.active a {
+  color: var(--color-accent);
+  font-weight: 700;
+  position: relative;
+}
+
+/* Animation du texte du lien actif */
+nav ul li a {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+nav ul li.active a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+}
+
+/* Animation au survol */
+nav ul li:hover a {
+  transform: translateY(-2px);
+}
+
+/* Animation du logo au survol */
+header .size-6 img {
+  transition: transform 0.3s ease;
+}
+
+header .size-6:hover img {
+  transform: rotate(180deg);
+}
+
+/* ============================================ */
+/* RESPONSIVE - MENU MOBILE */
+/* ============================================ */
+
 /* Style pour le menu mobile */
 @media (max-width: 768px) {
   .nav-links {
@@ -53,16 +159,16 @@ button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 1rem 1rem;
   }
-  
+ 
   .nav-links.active {
     display: flex;
   }
-  
+ 
   .nav-links a {
     padding: 0.75rem 0;
     border-bottom: 1px solid var(--color-secondary);
   }
-  
+ 
   .nav-links a:last-child {
     border-bottom: none;
   }
