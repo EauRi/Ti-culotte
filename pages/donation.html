@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html class="light" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Donation - Ti-culotté</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FFF4E0",
+              secondary: "#FFE8D6",
+              accent: "#E8A87C",
+              neutral: "#FFFCF7",
+              "text-color": "#5D5550",
+              "background-light": "#f8f7f6",
+              "background-dark": "#211911",
+            },
+            fontFamily: { display: ["Plus Jakarta Sans", "sans-serif"] },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .flip-card {
+        perspective: 1000px;
+        cursor: pointer;
+      }
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+      .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 1rem;
+      }
+      .flip-card-back {
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+
+  <body class="bg-background-light font-display">
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center pt-5">
+          <div
+            class="layout-content-container flex flex-col max-w-[960px] flex-1"
+          >
+            <!-- Header -->
+            <header
+              class="fixed top-0 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between whitespace-nowrap bg-neutral px-10 py-3 rounded-xl shadow-md w-full max-w-[960px]"
+            >
+              <a
+                href="../index.html"
+                class="flex items-center gap-4 text-text-color transition-opacity outline-none focus:outline-none"
+              >
+                <div class="size-6 text-accent">
+                  <div class="size-6">
+                    <img
+                      src="../img/logo.png"
+                      alt="Logo Ti-culotté"
+                      class="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+                <h2
+                  class="text-accent text-lg font-bold leading-tight tracking-[-0.015em]"
+                >
+                  Ti-culotté
+                </h2>
+              </a>
+
+              <!-- Navigation desktop -->
+              <div class="hidden lg:flex items-center gap-9">
+                <a
+                  class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
+                  href="../index.html#comment-ca-marche"
+                  >Comment ça marche</a
+                >
+                <a
+                  class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
+                  href="../index.html#formules"
+                  >Abonnement</a
+                >
+                <a
+                  class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors"
+                  href="../index.html#a-propos"
+                  >À propos</a
+                >
+              </div>
+
+              <a
+                class="hidden lg:flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-secondary text-text-color text-sm font-bold leading-normal tracking-[0.015em] hover:bg-accent hover:text-white transition-colors"
+                href="../index.html#a-propos"
+              >
+                <span class="truncate">Louer maintenant</span>
+              </a>
+
+              <!-- Bouton hamburger -->
+              <button
+                id="hamburger-btn"
+                class="lg:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center"
+              >
+                <span
+                  class="hamburger-line block w-6 h-0.5 bg-text-color transition-all duration-300"
+                ></span>
+                <span
+                  class="hamburger-line block w-6 h-0.5 bg-text-color transition-all duration-300"
+                ></span>
+                <span
+                  class="hamburger-line block w-6 h-0.5 bg-text-color transition-all duration-300"
+                ></span>
+              </button>
+
+              <!-- Menu mobile -->
+              <div
+                id="mobile-menu"
+                class="hidden lg:hidden absolute top-full left-0 right-0 mt-2 bg-neutral rounded-xl shadow-lg overflow-hidden"
+              >
+                <div class="flex flex-col p-4 gap-4">
+                  <a
+                    class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors py-2"
+                    href="../index.html#comment-ca-marche"
+                    >Comment ça marche</a
+                  >
+                  <a
+                    class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors py-2"
+                    href="../index.html#formules"
+                    >Abonnement</a
+                  >
+                  <a
+                    class="text-text-color text-sm font-medium leading-normal hover:text-accent transition-colors py-2"
+                    href="../index.html#a-propos"
+                    >À propos</a
+                  >
+                  <a
+                    class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-secondary text-text-color text-sm font-bold leading-normal tracking-[0.015em] hover:bg-accent hover:text-white transition-colors"
+                    href="../index.html#contact"
+                  >
+                    <span class="truncate">Louer maintenant</span>
+                  </a>
+                </div>
+              </div>
+            </header>
+
+            <main class="pt-24 pb-12">
+              <!-- Hero Section -->
+              <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-text-color mb-4">
+                  Donnez une seconde vie
+                </h1>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Vos vêtements d'enfants peuvent faire des heureux ! Faites un
+                  don et participez à notre mission écoresponsable.
+                </p>
+              </div>
+
+              <!-- Formulaire de donation -->
+              <div
+                class="bg-neutral rounded-xl shadow-lg p-8 md:p-12 max-w-3xl mx-auto"
+              >
+                <form id="donation-form" class="space-y-6">
+                  <!-- Nom complet -->
+                  <div>
+                    <label
+                      for="nom"
+                      class="block text-sm font-semibold text-text-color mb-2"
+                    >
+                      Nom complet *
+                    </label>
+                    <input
+                      type="text"
+                      id="nom"
+                      name="nom"
+                      required
+                      class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                      placeholder="Votre nom complet"
+                    />
+                  </div>
+
+                  <!-- Adresse courriel -->
+                  <div>
+                    <label
+                      for="courriel"
+                      class="block text-sm font-semibold text-text-color mb-2"
+                    >
+                      Adresse courriel *
+                    </label>
+                    <input
+                      type="email"
+                      id="courriel"
+                      name="courriel"
+                      required
+                      class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                      placeholder="votre@courriel.com"
+                    />
+                  </div>
+
+                  <!-- Téléphone -->
+                  <div>
+                    <label
+                      for="telephone"
+                      class="block text-sm font-semibold text-text-color mb-2"
+                    >
+                      Numéro de téléphone *
+                    </label>
+                    <input
+                      type="tel"
+                      id="telephone"
+                      name="telephone"
+                      required
+                      class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                      placeholder="(XXX) XXX-XXXX"
+                    />
+                  </div>
+
+                  <!-- Adresse postale -->
+                  <div>
+                    <label
+                      for="adresse"
+                      class="block text-sm font-semibold text-text-color mb-2"
+                    >
+                      Adresse postale complète *
+                    </label>
+                    <textarea
+                      id="adresse"
+                      name="adresse"
+                      required
+                      rows="3"
+                      class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all resize-none"
+                      placeholder="Numéro, rue, ville, code postal"
+                    ></textarea>
+                  </div>
+
+                  <!-- Tailles à donner -->
+                  <!-- Tailles à donner -->
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-text-color mb-2"
+                    >
+                      Tailles d'enfants à donner (4 ans et moins) *
+                    </label>
+                    <p class="text-xs text-gray-500 mb-3">
+                      Sélectionnez toutes les tailles que vous souhaitez donner
+                    </p>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                      <label class="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          name="tailles[]"
+                          value="nouveau-ne"
+                          class="w-4 h-4 text-accent border-gray-300 rounded focus:ring-accent"
+                        />
+                        <span class="text-sm text-text-color"
+                          >Nouveau-né (0-3 mois)</span
+                        >
+                      </label>
+
+                      <label class="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          name="tailles[]"
+                          value="0-6-mois"
+                          class="w-4 h-4 text-accent border-gray-300 rounded focus:ring-accent"
+                        />
+                        <span class="text-sm text-text-color">0-6 mois</span>
+                      </label>
+
+                      <label class="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          name="tailles[]"
+                          value="6-12-mois"
+                          class="w-4 h-4 text-accent border-gray-300 rounded focus:ring-accent"
+                        />
+                        <span class="text-sm text-text-color">6-12 mois</span>
+                      </label>
+
+                      <label class="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          name="tailles[]"
+                          value="12-18-mois"
+                          class="w-4 h-4 text-accent border-gray-300 rounded focus:ring-accent"
+                        />
+                        <span class="text-sm text-text-color">12-18 mois</span>
+                      </label>
+
+                      <label class="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          name="tailles[]"
+                          value="18-24-mois"
+                          class="w-4 h-4 text-accent border-gray-300 rounded focus:ring-accent"
+                        />
+                        <span class="text-sm text-text-color">18-24 mois</span>
+                      </label>
+
+                      <label class="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          name="tailles[]"
+                          value="2-ans"
+                          class="w-4 h-4 text-accent border-gray-300 rounded focus:ring-accent"
+                        />
+                        <span class="text-sm text-text-color">2 ans</span>
+                      </label>
+
+                      <label class="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          name="tailles[]"
+                          value="3-ans"
+                          class="w-4 h-4 text-accent border-gray-300 rounded focus:ring-accent"
+                        />
+                        <span class="text-sm text-text-color">3 ans</span>
+                      </label>
+
+                      <label class="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          name="tailles[]"
+                          value="4-ans"
+                          class="w-4 h-4 text-accent border-gray-300 rounded focus:ring-accent"
+                        />
+                        <span class="text-sm text-text-color">4 ans</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Notes additionnelles -->
+                  <div>
+                    <p class="block text-sm text-text-color mt-20">
+                      Vos dons seront récupérés dans les 48h suivantes. Un
+                      courriel de confirmation vous sera envoyé une fois la
+                      demande traitée pour vous confirmer le jour et l'heure de
+                      passage.
+                    </p>
+                  </div>
+
+                  <!-- Bouton de soumission -->
+                  <div class="pt-4">
+                    <button
+                      type="submit"
+                      class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg"
+                    >
+                      Envoyer ma demande de donation
+                    </button>
+                  </div>
+
+                  <p class="text-xs text-gray-500 text-center">
+                    * Champs obligatoires
+                  </p>
+                </form>
+
+                <!-- Message de confirmation (caché par défaut) -->
+                <div
+                  id="confirmation-message"
+                  class="hidden mt-8 p-6 bg-secondary rounded-lg text-center"
+                >
+                  <div class="text-5xl mb-4">✨</div>
+                  <h3 class="text-2xl font-bold text-accent mb-2">
+                    Merci pour votre générosité !
+                  </h3>
+                  <p class="text-text-color">
+                    Nous avons bien reçu votre demande et nous vous contacterons
+                    sous peu pour organiser la collecte.
+                  </p>
+                </div>
+              </div>
+            </main>
+
+            <footer
+              class="bg-neutral text-text-color px-10 py-12 rounded-t-3xl mt-16"
+            >
+              <div
+                class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10"
+              >
+                <!-- Bloc 1 : Branding -->
+                <div class="col-span-1">
+                  <h2 class="text-2xl font-semibold text-accent mb-3">
+                    Ti-culotté
+                  </h2>
+                  <p class="text-sm leading-relaxed text-gray-700">
+                    Location de vêtements écoresponsables pour enfants. Une mode
+                    circulaire, pratique et futée 🌿
+                  </p>
+                </div>
+
+                <!-- Bloc 2 : Liens utiles -->
+                <div>
+                  <h3 class="text-accent font-semibold mb-3">Liens utiles</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >Accueil</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >À propos</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >Nos formules</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >Contact</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Bloc 3 : Ressources -->
+                <div>
+                  <h3 class="text-accent font-semibold mb-3">Ressources</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#faq" class="hover:text-accent transition"
+                        >FAQ</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >Conditions générales</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >Politique de confidentialité</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-accent transition"
+                        >Mentions légales</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Bloc 4 : Newsletter -->
+                <div>
+                  <h3 class="text-accent font-semibold mb-3">
+                    Restez en contact 💌
+                  </h3>
+                  <p class="text-sm mb-4 text-gray-700">
+                    Recevez nos nouveautés et astuces éco pour parents futés !
+                  </p>
+
+                  <!-- Réseaux sociaux -->
+                  <div class="flex gap-4 mt-5">
+                    <a href="#" class="hover:text-accent transition text-sm"
+                      >Instagram</a
+                    >
+                    <a href="#" class="hover:text-accent transition text-sm"
+                      >Pinterest</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ligne bas de page -->
+              <div
+                class="border-t border-gray-300 mt-10 pt-4 text-xs text-gray-500"
+              >
+                © 2025 Ti-culotté — Tous droits réservés.
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      // Initialisation EmailJS
+      emailjs.init("8vBaE8_sIR-bGulqX");
+
+      // Menu hamburger
+      const hamburgerBtn = document.getElementById("hamburger-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      hamburgerBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+
+        const lines = hamburgerBtn.querySelectorAll(".hamburger-line");
+        if (!mobileMenu.classList.contains("hidden")) {
+          lines[0].style.transform = "rotate(45deg) translateY(8px)";
+          lines[1].style.opacity = "0";
+          lines[2].style.transform = "rotate(-45deg) translateY(-8px)";
+        } else {
+          lines[0].style.transform = "none";
+          lines[1].style.opacity = "1";
+          lines[2].style.transform = "none";
+        }
+      });
+
+      // Gestion du formulaire de donation
+      document
+        .getElementById("donation-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Récupération des données du formulaire
+          const nom = document.getElementById("nom").value.trim();
+          const courriel = document.getElementById("courriel").value.trim();
+          const telephone = document.getElementById("telephone").value.trim();
+          const adresse = document.getElementById("adresse").value.trim();
+
+          // Récupération des tailles cochées
+          const taillesCheckboxes = document.querySelectorAll(
+            'input[name="tailles[]"]:checked'
+          );
+          const tailles = Array.from(taillesCheckboxes)
+            .map((cb) => cb.nextElementSibling.textContent)
+            .join(", ");
+
+          // Validation
+          if (
+            !nom ||
+            !courriel ||
+            !telephone ||
+            !adresse ||
+            tailles.length === 0
+          ) {
+            alert(
+              "Veuillez remplir tous les champs obligatoires et sélectionner au moins une taille"
+            );
+            return;
+          }
+
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(courriel)) {
+            alert("Veuillez entrer une adresse courriel valide");
+            return;
+          }
+
+          // Désactiver le bouton pendant l'envoi
+          const btn = this.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          btn.textContent = "Envoi en cours...";
+
+          // Envoi via EmailJS
+          emailjs
+            .send("service_ruk0nb8", "template_9spawdr", {
+              nom: nom,
+              courriel: courriel,
+              telephone: telephone,
+              adresse: adresse,
+              tailles: tailles,
+            })
+            .then(() => {
+              // Afficher le message de confirmation
+              document.getElementById("donation-form").style.display = "none";
+              document
+                .getElementById("confirmation-message")
+                .classList.remove("hidden");
+              document
+                .getElementById("confirmation-message")
+                .scrollIntoView({ behavior: "smooth", block: "center" });
+            })
+            .catch((error) => {
+              alert("Erreur lors de l'envoi. Veuillez réessayer.");
+              console.error("Erreur EmailJS:", error);
+              btn.disabled = false;
+              btn.textContent = "Envoyer ma demande de donation";
+            });
+        });
+    </script>
+  </body>
+</html>
